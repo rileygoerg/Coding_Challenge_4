@@ -28,12 +28,12 @@ class EV extends Car{
     }
     // Part 3: Customize Accelerate Method to increase speed by 20 and decrease charge by 1%
     accelerate(){
-        if(this.charge > 0){
+        if(this.charge > 0){ // Ensuring charge is above 0 with if/else statement
             this.speed += 20; 
-            this.charge -= 1; 
+            this.charge -= 1; // If charge is above 0, decrease charge by 1 when accelerating.
             console.log(this.make, "is going at a speed of", this.speed, "km/h with a charge of", this.charge, "%.");
         }
-        else {
+        else { // If charge is 0, do not allow car to accelerate
             console.log(this.make, "cannot accelerate. The battery must be charged.");
             this.speed = this.initialSpeed; // Resetting speed to initial speed if out of battery
             console.log("Speed of", this.make, "was reset to", this.speed, "km/h from running out of battery.")
