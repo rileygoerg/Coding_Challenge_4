@@ -1,1 +1,3 @@
 # Coding_Challenge_4
+## U14123683 Riley Goerg
+The purpose of this coding challenge is to: create a EV class within the previous challenge's Car class that includes a charge property to represent the EV's current battery charge. Next, the chargeBattery method is created to charge the battery to the set chargeTo input. The accelerate function from the previous challenge is then modified to increase the speed by 20 km/h and decrease battery life by 1%. Lastly, each function (accelerate, brake, chargeBattery) is tested on a new EV constant.
