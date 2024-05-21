@@ -12,7 +12,7 @@ class Car {
     // Part 3: Brake Function. Removes 5 km/h from current car speed
     brake(){
         this.speed -= 5;
-        console.log("The ", this.make, "braked. Current speed: ", this.speed, "km/h");
+        console.log("The", this.make, "braked. Current speed:", this.speed, "km/h");
     }
 }
 // Part 1: Extending Car Class with EV Class
@@ -27,10 +27,19 @@ class EV extends Car{
     }
     // Part 3: Customize Accelerate Method to increase speed by 20 and decrease charge by 1%
     accelerate(){
-        this.speed += 20; 
-        this.charge -= 1; 
-        console.log(this.make, "is going at a speed of", this.speed, "km/h with a charge of", this.charge, "%.")
+        if(this.charge > 0){
+            this.speed += 20; 
+            this.charge =Math.max(this.charge -= 1); 
+            console.log(this.make, "is going at a speed of", this.speed, "km/h with a charge of", this.charge, "%.");
+        }
+        else {
+            console.log(this.make, "cannot accelerate. The battery must be charged.")
+        }
     }
 }
+
+
+
+
 
 
