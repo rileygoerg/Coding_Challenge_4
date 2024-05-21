@@ -15,3 +15,9 @@ class Car {
         console.log("The ", this.make, "braked. Current speed: ", this.speed, "km/h");
     }
 }
+// Part 1: Extending Car Class with EV Class
+class EV extends Car{
+    constructor(charge){
+        this.charge = charge
+    }
+}
