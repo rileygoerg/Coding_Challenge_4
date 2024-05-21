@@ -17,7 +17,13 @@ class Car {
 }
 // Part 1: Extending Car Class with EV Class
 class EV extends Car{
-    constructor(charge){
-        this.charge = charge
+    constructor(make, speed, charge){
+        super(make, speed); // Pulling make and speed from parent Car class
+        this.charge = charge;
+    }
+    // Part 2: Implementing chargeBattery method
+    chargeBattery(chargeTo){ // Ex: chargeBattery(50)
+        this.charge = chargeTo; // Sets charge to chargeTo input
     }
 }
+
