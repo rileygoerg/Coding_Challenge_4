@@ -20,6 +20,7 @@ class EV extends Car{
     constructor(make, speed, charge){
         super(make, speed); // Pulling make and speed from parent Car class
         this.charge = charge;
+        this.initialSpeed = speed // Storing initial speed
     }
     // Part 2: Implementing chargeBattery method
     chargeBattery(chargeTo){ // Ex: chargeBattery(50)
@@ -29,15 +30,37 @@ class EV extends Car{
     accelerate(){
         if(this.charge > 0){
             this.speed += 20; 
-            this.charge =Math.max(this.charge -= 1); 
+            this.charge -= 1; 
             console.log(this.make, "is going at a speed of", this.speed, "km/h with a charge of", this.charge, "%.");
         }
         else {
-            console.log(this.make, "cannot accelerate. The battery must be charged.")
+            console.log(this.make, "cannot accelerate. The battery must be charged.");
+            this.speed = this.initialSpeed; // Resetting speed to initial speed if out of battery
+            console.log("Speed of", this.make, "was reset to", this.speed, "km/h from running out of battery.")
         }
     }
 }
+// Part 4: Testing EV Class
+// Creating New EV
+const tesla = new EV("Tesla", 120, 23) // Creating a tesla with a speed of 120km/h and a charge of 23%.
 
+// Testing chargeBattery function
+tesla.chargeBattery(50); // Charging to 50
+console.log(tesla.make, "was charged to", tesla.charge, "%.");
+
+// Testing overridden accelerate function
+tesla.accelerate();
+
+// Testing accelerate function at 0 charge
+tesla.chargeBattery(0);
+console.log(tesla.make, "charge was set to", tesla.charge, "%.");
+tesla.accelerate();
+
+// Charging tesla and testing accelerate and brake function
+tesla.chargeBattery(23);
+console.log(tesla.make, "was charged to", tesla.charge, "%.");
+tesla.accelerate();
+tesla.brake();
 
 
 
